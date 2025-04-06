@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Acao } from "@/services/ActionService";
 import { CreateActionForm } from "../Action/CreateActionForm";
-import { createJourney } from "@/services/journeyService"; // Função para criar jornada no backend
+import { createJourney } from "@/services/JourneyService";
 
 interface CreateJourneyFormProps {
   onCreate: (journey: {

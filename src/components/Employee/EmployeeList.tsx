@@ -10,6 +10,7 @@ import {
 import { EmployeeTableComponent } from "./EmployeeTable";
 import { CreateEmployeeForm } from "./CreateEmployeeForm";
 import { Button } from "../ui/button";
+import { Plus } from "lucide-react";
 
 export const EmployeeList = () => {
   const [employeees, setEmployeees] = useState<Employee[]>([]);
@@ -99,7 +100,13 @@ export const EmployeeList = () => {
     <div className="max-w-7xl mx-auto p-6 ">
       <h1 className="text-3xl font-bold text-center mb-8 flex justify-between items-center">
         <span>Colaboradores</span>
-        <Button onClick={() => setShowForm(true)}>Adicionar Colaborador</Button>
+        <Button
+          onClick={() => setShowForm(true)}
+          className="bg-blue-600 hover:bg-blue-800 cursor-pointer"
+        >
+          <Plus className="mr-2 h-4 w-4" />
+          Adicionar Colaborador
+        </Button>
       </h1>
 
       {/* Mensagens de status */}

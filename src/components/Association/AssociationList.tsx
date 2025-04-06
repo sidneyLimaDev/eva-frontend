@@ -20,7 +20,6 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { Badge } from "../ui/badge";
 import { CreateAssociationModal } from "./CreateAssociationModal";
 
 const JourneyAssociationList = () => {
@@ -28,11 +27,10 @@ const JourneyAssociationList = () => {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Função para buscar as associações
   const fetchAssociations = async () => {
     try {
       const associationsData = await getAllJourneyAssociations();
-      // Atualiza o estado com as associações
+
       setAssociations(associationsData);
     } catch (error) {
       console.error("Erro ao carregar associações:", error);
@@ -65,7 +63,13 @@ const JourneyAssociationList = () => {
             Veja as associações de colaboradores e jornadas.
           </p>
         </div>
-        <Button onClick={() => setIsModalOpen(true)}>Criar Associação</Button>
+        <Button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-blue-600 hover:bg-blue-800 cursor-pointer"
+        >
+          <Plus className="mr-2 h-4 w-4" />
+          Criar Associação
+        </Button>
       </div>
 
       {/* Lista de Associações */}
@@ -77,9 +81,8 @@ const JourneyAssociationList = () => {
             const colaborador = association?.colaborador;
             const jornada = association?.jornada;
 
-            // Verificações de segurança para garantir que as propriedades existam
             if (!colaborador || !jornada) {
-              return null; // Caso algum dado esteja ausente, não renderiza
+              return null;
             }
 
             return (
@@ -97,16 +100,18 @@ const JourneyAssociationList = () => {
                     <Trash className="w-4 h-4 text-destructive" />
                   </Button>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Data de Início</TableHead>
+                        <TableHead className="text-muted-foreground text-sm">
+                          Data de Início
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        <TableCell>
+                        <TableCell className="text-sm">
                           {new Date(
                             association.dataInicio
                           ).toLocaleDateString()}

@@ -143,7 +143,10 @@ const JourneyList = () => {
             Veja as jornadas e as ações configuradas.
           </p>
         </div>
-        <Button onClick={() => setShowForm(true)}>
+        <Button
+          onClick={() => setShowForm(true)}
+          className="bg-blue-600 hover:bg-blue-800 cursor-pointer"
+        >
           <Plus className="mr-2 h-4 w-4" /> Criar Jornada
         </Button>
       </div>
