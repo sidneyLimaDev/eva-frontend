@@ -3,11 +3,11 @@ import { NavLink, useLocation } from "react-router-dom";
 import {
   Home,
   User,
-  Settings,
   Menu,
   LogOut,
   PanelLeftIcon,
   PanelLeftCloseIcon,
+  BriefcaseBusiness,
 } from "lucide-react";
 import logoCompacta from "../assets/logo.png";
 import logo from "../assets/logo2.png";
@@ -15,8 +15,7 @@ import logo from "../assets/logo2.png";
 const menuItems = [
   { name: "Início", icon: Home, path: "/" },
   { name: "Colaboradores", icon: User, path: "/colaboradores" },
-  { name: "Jornadas", icon: Settings, path: "/jornadas" },
-  { name: "Sair", icon: LogOut, path: "/logout" },
+  { name: "Jornadas", icon: BriefcaseBusiness, path: "/jornadas" },
 ];
 
 const SideMenu = () => {
