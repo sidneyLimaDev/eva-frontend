@@ -22,8 +22,21 @@ import {
 } from "../ui/table";
 import { CreateAssociationModal } from "./CreateAssociationModal";
 
+type PopulatedAssociation = {
+  _id: string;
+  jornadaId: string;
+  colaboradorId: string;
+  dataInicio: string;
+  colaborador: {
+    nome: string;
+  };
+  jornada: {
+    descricao: string;
+  };
+};
+
 const JourneyAssociationList = () => {
-  const [associations, setAssociations] = useState([]);
+  const [associations, setAssociations] = useState<PopulatedAssociation[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

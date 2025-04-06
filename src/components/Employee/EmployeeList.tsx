@@ -15,7 +15,6 @@ import { Plus } from "lucide-react";
 export const EmployeeList = () => {
   const [employeees, setEmployeees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [employeeToEdit, setEmployeeToEdit] = useState<Employee | null>(null);
@@ -48,9 +47,9 @@ export const EmployeeList = () => {
   };
 
   const handleEditEmployee = async (employee: string) => {
-    console.log("Editando colaborador com ID:", employee._id);
+    console.log("Editando colaborador com ID:", employee);
     try {
-      const employeeData = await getEmployeeById(employee._id);
+      const employeeData = await getEmployeeById(employee);
       if (employeeData) {
         setEmployeeToEdit(employeeData);
         setShowForm(true);
@@ -79,7 +78,9 @@ export const EmployeeList = () => {
 
     console.log("Atualizando colaborador", id, updatedEmployee);
 
-    updateEmployee(id, updatedEmployee).then(() => fetchEmployeees());
+    const employeeWithId = { _id: id, ...updatedEmployee };
+
+    updateEmployee(id, employeeWithId).then(() => fetchEmployeees());
   };
 
   const handleDelete = async (id: string) => {
@@ -119,13 +120,16 @@ export const EmployeeList = () => {
           onCreate={handleCreate}
           onUpdate={handleUpdate}
           onClose={() => setShowForm(false)}
-          employeeToEdit={employeeToEdit} // Passa o colaborador a ser editado
+          employeeToEdit={
+            employeeToEdit && employeeToEdit._id
+              ? { ...employeeToEdit, _id: employeeToEdit._id || "" }
+              : null
+          }
         />
       )}
 
       <EmployeeTableComponent
         employee={employeees}
-        searchTerm={searchTerm}
         onEdit={(id: string) => handleEditEmployee(id)} // Passando apenas o ID
         onDelete={handleDelete}
       />

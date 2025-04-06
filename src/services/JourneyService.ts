@@ -1,20 +1,26 @@
 import api from "./api";
 
 export interface Acao {
-  _id: string;
+  _id?: string;
   tipo: "email" | "whatsapp" | string;
-  conteudo: string;
-  atrasoEmSegundos: number;
+  description: string;
+  payload: number;
 }
 
 export interface Journey {
-  _id: string;
+  _id?: string;
   nome: string;
   acoes: Acao[];
 }
 
+export interface CreateJourneyInput {
+  nome: string;
+  descricao: string;
+  acoes: string[]; // <-- Aqui é o que realmente é enviado
+}
+
 // Criar jornada
-export const createJourney = async (journey: Journey) => {
+export const createJourney = async (journey: CreateJourneyInput) => {
   try {
     const response = await api.post("/jornadas", journey);
     console.log("🟢 Jornada criada:", response.data);

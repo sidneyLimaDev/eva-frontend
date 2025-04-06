@@ -4,7 +4,7 @@ export interface JourneyAssociation {
   _id?: string;
   jornadaId: string;
   colaboradorId: string;
-  dataInicio: string; // ISO
+  dataInicio: Date;
 }
 
 // Criar nova associação

@@ -179,7 +179,7 @@ const JourneyList = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={() => handleDelete(journey._id)}
+                  onClick={() => handleDelete(journey._id ?? "")}
                 >
                   <Trash className="w-4 h-4 text-destructive" />
                 </Button>

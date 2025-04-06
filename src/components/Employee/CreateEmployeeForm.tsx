@@ -24,7 +24,7 @@ interface CreateEmployeeFormProps {
   ) => void;
   onClose: () => void;
   employeeToEdit: {
-    id: string;
+    _id: string;
     nome: string;
     cargo: string;
     email: string;

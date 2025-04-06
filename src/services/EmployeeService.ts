@@ -1,9 +1,11 @@
 import api from "./api";
 
 export interface Employee {
-  id?: string;
+  _id?: string;
   nome: string;
   cargo: string;
+  email: string;
+  telefone: string;
 }
 
 export const getEmployees = async () => {
