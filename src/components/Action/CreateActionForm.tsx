@@ -34,10 +34,10 @@ export const CreateActionForm = ({
 
     try {
       await createAction({
-        title, // Enviar 'title' como 'title' no corpo da requisição
-        description, // Enviar 'description' como 'description' no corpo da requisição
-        tipo, // Enviar 'tipo' como 'tipo'
-        payload: Number(payload), // Garantir que 'payload' seja enviado como número
+        title, 
+        description, 
+        tipo, 
+        payload: Number(payload), 
       });
 
       setTitle("");
@@ -53,66 +53,62 @@ export const CreateActionForm = ({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-           {" "}
+
       <DialogContent>
-               {" "}
+
         <DialogHeader>
-                    <DialogTitle>Nova Ação</DialogTitle>         {" "}
+          <DialogTitle>Nova Ação</DialogTitle>
           <DialogDescription>
-                        Preencha os campos abaixo para criar uma nova ação.    
-                 {" "}
+            Preencha os campos abaixo para criar uma nova ação. 
+
           </DialogDescription>
-                 {" "}
+
         </DialogHeader>
-               {" "}
+   
         <div className="grid gap-4 py-4">
-                   {" "}
+          
           <div className="space-y-2">
-                        <Label>Título</Label>           {" "}
+                        <Label>Título</Label>
             <Input value={title} onChange={(e) => setTitle(e.target.value)} /> 
-                   {" "}
+            
           </div>
-                   {" "}
+         
           <div className="space-y-2">
-                        <Label>Descrição</Label>           {" "}
+            <Label>Descrição</Label>
             <Textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-                     {" "}
+           
           </div>
-                   {" "}
+          
           <div className="space-y-2">
-                        <Label>Tipo</Label>           {" "}
+             <Label>Tipo</Label>
             <select
               value={tipo}
               onChange={(e) => setTipo(e.target.value)}
               className="border rounded-md px-3 py-2 text-sm"
             >
-                            <option value="email">Email</option>             {" "}
-              <option value="whatsapp">WhatsApp</option>           {" "}
+               <option value="email">Email</option>
+              <option value="whatsapp">WhatsApp</option>
             </select>
-                     {" "}
           </div>
-                   {" "}
           <div className="space-y-2">
-                        <Label>Atraso (segundos)</Label>           {" "}
+            <Label>Atraso (segundos)</Label>
             <Input
               type="number"
               value={payload}
               onChange={(e) => setPayload(e.target.value)}
             />
-                     {" "}
           </div>
-                 {" "}
         </div>
-               {" "}
+
         <DialogFooter>
-                    <Button onClick={handleSubmit}>Criar Ação</Button>       {" "}
+          <Button onClick={handleSubmit}>Criar Ação</Button>
         </DialogFooter>
-             {" "}
+
       </DialogContent>
-         {" "}
+
     </Dialog>
   );
 };

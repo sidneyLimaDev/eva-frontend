@@ -43,7 +43,7 @@ export const CreateEmployeeForm: React.FC<CreateEmployeeFormProps> = ({
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
 
-  // Se for um colaborador a ser editado, preenche os campos com os dados existentes
+
   useEffect(() => {
     if (employeeToEdit) {
       setNome(employeeToEdit.nome);
@@ -56,15 +56,15 @@ export const CreateEmployeeForm: React.FC<CreateEmployeeFormProps> = ({
   const handleSubmit = () => {
     const newEmployee = { nome, cargo, email, telefone };
     if (employeeToEdit) {
-      onUpdate(employeeToEdit._id, newEmployee); // Passando o ID corretamente para a função de atualização
+      onUpdate(employeeToEdit._id, newEmployee); 
     } else {
-      onCreate(newEmployee); // Se for criação, chama o onCreate
+      onCreate(newEmployee); 
     }
-    setNome(""); // Limpa os campos após o envio
+    setNome(""); 
     setCargo("");
     setEmail("");
     setTelefone("");
-    onClose(); // Fecha o formulário após a criação/atualização
+    onClose();
   };
 
   return (

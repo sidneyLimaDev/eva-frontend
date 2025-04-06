@@ -15,6 +15,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { Button } from "../ui/button";
+import { Edit, Trash } from "lucide-react";
 
 interface EmployeeTableComponentProps {
   employee: Employee[];
@@ -56,18 +58,20 @@ export const EmployeeTableComponent: React.FC<EmployeeTableComponentProps> = ({
                 <TableCell>{employee.email}</TableCell>
                 <TableCell>{employee.telefone}</TableCell>
                 <TableCell>
-                  <button
-                    className="px-3 py-1 bg-yellow-500 text-white rounded-md"
+                  <Button
+                    variant="ghost"
+                   className="cursor-pointer"
                     onClick={() => employee._id && onEdit(employee._id)}
                   >
-                    Editar
-                  </button>
-                  <button
-                    className="ml-2 px-3 py-1 bg-red-500 text-white rounded-md"
+                    <Edit className="w-4 h-4 text-black"/>
+                  </Button>
+                  <Button
+                  variant="ghost"
+                   className="cursor-pointer"
                     onClick={() => employee._id && onDelete(employee._id)}
                   >
-                    Deletar
-                  </button>
+                    <Trash className="w-4 h-4 text-destructive" size={16} />
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
