@@ -2,9 +2,10 @@ import api from "./api";
 
 export interface Acao {
   _id: string;
+  title: string;
   tipo: "email" | "whatsapp" | string;
-  conteudo: string;
-  atrasoEmSegundos: number;
+  description: string;
+  payload: number;
 }
 
 // Criar ação
