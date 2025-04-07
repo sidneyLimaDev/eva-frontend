@@ -1,6 +1,4 @@
-# Título do Projeto
-
-# Eva API
+# Plataforma EVA
 
 Este é o front-end da plataforma Eva, criado com React + Vite + Reat Router + TypeScript e estilizado com TailwindCSS e ShadCN UI.
 O sistema permite gerenciar colaboradores, jornadas, ações e suas associações, tudo com foco em uma jornada automatizada e fluida.
